@@ -16,9 +16,12 @@ namespace Backend.Data
         public DbSet<Studierende> Studierende { get; set; }
 
         // Constructor
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // SQL Server 
+            optionsBuilder.UseSqlServer("Server=DESKTOP-VQGH9P1\\SQLEXPRESS;Database=DbClassSystem;Trusted_Connection=True;TrustServerCertificate=True");
         }
+
 
         // OnModelCreating metod override
         protected override void OnModelCreating(ModelBuilder modelBuilder)
