@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopFrontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kursverwaltungssystem" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <!-- Title of the application -->
+        <TextBlock Text="Kursverwaltungssystem" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="10" />
+
+        <!-- Navigation Panel -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Width="200" Background="LightGray" Margin="10">
+                <Button Content="Kurse" Command="{Binding ShowKursCommand}" Width="200" Height="50" Margin="5"/>
+                <Button Content="Dozenten" Command="{Binding ShowDozentCommand}" Width="200" Height="50" Margin="5"/>
+                <Button Content="Studierende" Command="{Binding ShowStudierendeCommand}" Width="200" Height="50" Margin="5"/>
+            </StackPanel>
+
+            <!-- Content Area for UserControls -->
+            <ContentControl Content="{Binding CurrentViewModel}" Margin="10" />
+        </StackPanel>
+        
     </Grid>
 </Window>
